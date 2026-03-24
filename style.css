@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Space+Grotesk:wght@500;700;900&family=Fira+Code&display=swap');
+
+:root {
+    --primary-green: #00c982;
+    /* Vivid Agritech Emerald */
+    --primary-green-dark: #009961;
+    --dark-slate: #0b132b;
+    /* Deep Space Navy */
+    --tech-white: #f8fafc;
+    --accent-gold: #f59e0b;
+    /* Amber */
+    --border-silver: #cbd5e1;
+    --status-ok: #10b981;
+    --status-warning: #f59e0b;
+    --text-muted: #94a3b8;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --tech-font: 'Fira Code', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    color: var(--dark-slate);
+    background-color: var(--tech-white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+.logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+/* --- Layout & Navigation --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 5%;
+    background: #fff;
+    border-bottom: 3px solid var(--dark-slate);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: var(--dark-slate);
+}
+
+.logo span {
+    color: var(--primary-green);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--dark-slate);
+    font-weight: 600;
+    font-size: 0.9rem;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--primary-green);
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)),
+        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80');
+    /* Industrial loading dock */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 160px 5%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 14px 28px;
+    border-radius: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: 0.2s;
+}
+
+.btn-primary {
+    background: var(--primary-green);
+    color: white;
+    border: 2px solid var(--primary-green);
+}
+
+.btn-primary:hover {
+    background: var(--primary-green-dark);
+}
+
+.btn-secondary {
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: var(--dark-slate);
+}
+
+/* --- Sections Common --- */
+section {
+    padding: 100px 5%;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-green);
+}
+
+/* --- Dashboard Mockup --- */
+.platform-screenshot {
+    background: #0d1117;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    font-family: var(--tech-font);
+}
+
+.screenshot-header {
+    background: #161b22;
+    padding: 12px 20px;
+    border-bottom: 1px solid #30363d;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.screenshot-body {
+    padding: 30px;
+    color: #c9d1d9;
+}
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-box {
+    background: #161b22;
+    border: 1px solid #30363d;
+    padding: 20px;
+    text-align: left;
+}
+
+.stat-box .label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.stat-box .value {
+    font-size: 1.5rem;
+    color: #58a6ff;
+    font-weight: bold;
+}
+
+.stat-box .status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--status-ok);
+    margin-right: 8px;
+    box-shadow: 0 0 10px var(--status-ok);
+}
+
+.graph-placeholder {
+    height: 200px;
+    background: repeating-linear-gradient(45deg, #161b22, #161b22 10px, #1c2128 10px, #1c2128 20px);
+    border: 1px dashed #30363d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+
+@keyframes pulseGlow {
+    0% {
+        opacity: 0.6;
+        text-shadow: 0 0 5px var(--primary-green);
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 15px var(--primary-green);
+        transform: scale(1.02);
+    }
+
+    100% {
+        opacity: 0.6;
+        text-shadow: 0 0 5px var(--primary-green);
+        transform: scale(1);
+    }
+}
+
+.live-tracking-text {
+    animation: pulseGlow 2s infinite ease-in-out;
+    color: var(--primary-green);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* --- Product Cards / Data Sheets --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.product-item {
+    border: 1px solid var(--border-silver);
+    background: white;
+    padding: 0;
+    transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-green);
+    box-shadow: var(--card-shadow);
+}
+
+.product-header-box {
+    padding: 25px;
+    border-bottom: 1px solid var(--border-silver);
+    background: #f8fafc;
+}
+
+.product-item h3 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.tech-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--tech-font);
+    font-size: 0.8rem;
+}
+
+.tech-table tr {
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.tech-table td {
+    padding: 12px 25px;
+}
+
+.tech-table td:first-child {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.tech-table td:last-child {
+    text-align: right;
+    color: var(--dark-slate);
+    font-weight: bold;
+}
+
+/* --- Trust / Compliance --- */
+.standards {
+    background: #f8fafc;
+    border-top: 1px solid var(--border-silver);
+}
+
+.compliance-ribbon {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+}
+
+.compliance-item {
+    text-align: center;
+    max-width: 150px;
+}
+
+.compliance-item i {
+    font-size: 2.5rem;
+    color: var(--primary-green);
+    margin-bottom: 15px;
+}
+
+.compliance-item span {
+    display: block;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+/* --- Testimonials --- */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 40px;
+    border-left: 4px solid var(--primary-green);
+    box-shadow: var(--card-shadow);
+}
+
+.testimonial-card p {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.testimonial-card .kpi {
+    color: var(--primary-green);
+    font-weight: 800;
+    font-size: 1.25rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* --- Footer --- */
+footer {
+    background: var(--dark-slate);
+    color: white;
+    padding: 60px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 5px solid var(--primary-green);
+}
+
+footer a {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .stats-row {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+}
